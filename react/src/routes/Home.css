@@ -5,20 +5,31 @@
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-  }
+}
   
-  .li {
+.li {
     width: 100%;
-  }
+}
+
+.button {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    border: 2px solid var(--accent-color);
+    border-radius: .25rem;
+    padding: .2rem .3rem;
+    margin: .2rem;
+    font-weight: 700;
+}
+
   
-  @media screen and (min-width: 640px) {
+@media screen and (min-width: 640px) {
     .li {
-      width: 50%;
+        width: 50%;
     }
-  }
+}
   
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .li {
-      width: 33%;
+        width: 33%;
     }
-  }
+}

@@ -12,8 +12,8 @@ class Detail extends Component {
         this.fetchDog(this.dogId, this.props.apiUrl);
     }
 
-    fetchDog(dogId, apiUrl = 'https://api.thedogapi.com/v1/images') {
-        fetch(`${apiUrl}/${dogId}`)
+    fetchDog(dogId, apiUrl = 'https://api.thedogapi.com/v1/images/') {
+        fetch(`${apiUrl}${dogId}`)
             .then(response => response.json())
             .then(data => this.setState({ dog: data }));
     }

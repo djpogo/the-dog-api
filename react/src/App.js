@@ -9,7 +9,7 @@ import './App.css';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
 
-const apiUrl = 'https://api.thedogapi.com/v1/images/search?limit=20';
+const apiUrl = 'https://api.thedogapi.com/v1/images/';
 
 class App extends Component {
   constructor(props) {
@@ -35,10 +35,10 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path="/dog/:dogId">
-            <Detail />
+            <Detail apiUrl={apiUrl} />
           </Route>
           <Route path="/">
-            <Home apiUrl={apiUrl} />
+            <Home apiUrl={`${apiUrl}search?limit=20`} />
           </Route>
         </Switch>
       </Router>
