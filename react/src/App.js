@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
+import './App.css';
+import Home from './routes/Home';
+import Detail from './routes/Detail';
+
+const apiUrl = 'https://api.thedogapi.com/v1/images/search?limit=20';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {dogs: []};
+  }
+  
+  componentDidMount() {
+    this.fetchDogs();
+  }
+
+  async fetchDogs() {
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => this.setState({ dogs: data }));
+  }
+
+  render() {
+    return (<div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>The Dog Api</h1>
       </header>
-    </div>
-  );
+      <Router>
+        <Switch>
+          <Route path="/dog/:dogId">
+            <Detail />
+          </Route>
+          <Route path="/">
+            <Home apiUrl={apiUrl} />
+          </Route>
+        </Switch>
+      </Router>
+    </div>)
+  }
 }
 
 export default App;
