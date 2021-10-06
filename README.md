@@ -20,13 +20,15 @@ By creating the *same* app with different frameworks, they are compareable with 
 
 ## frameworks used so far
 
-* [react w/ class](./react)
+* [react w/ class](./react-class)
+* [react w/ function](./react-fn)
 
 ## framework statistics
 
 | Framework | plain ByteSize* | gzip ByteSize* | Lighthouse Score** |
 |-----------|-------------:|----:|------:|
-| React@17.0.2<br>w/ class | `177.674 B` | `57.034 B` | tba |
+| [React@17.0.2<br>w/ class](./react-class) | `178.554 B` | `56,994 B` | tba |
+| [React@17.0.2<br>w/ function](./react-fn) | `176.569 B` | `56,663 B` | tba |
 
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
 
