@@ -12,21 +12,6 @@ import Detail from './routes/Detail';
 const apiUrl = 'https://api.thedogapi.com/v1/images/';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {dogs: []};
-  }
-  
-  componentDidMount() {
-    this.fetchDogs();
-  }
-
-  async fetchDogs() {
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => this.setState({ dogs: data }));
-  }
-
   render() {
     return (<div className="App">
       <header className="App-header">
