@@ -22,6 +22,7 @@ By creating the *same* app with different frameworks, they are compareable with 
 
 * [react w/ class](./react-class)
 * [react w/ function](./react-fn)
+* [next.js](./next.js)
 
 ## framework statistics
 
@@ -29,7 +30,9 @@ By creating the *same* app with different frameworks, they are compareable with 
 |-----------|-------------:|----:|------:|
 | [React@17.0.2<br>w/ class](./react-class) | `178.554 B` | `56,994 B` | tba |
 | [React@17.0.2<br>w/ function](./react-fn) | `176.569 B` | `56,663 B` | tba |
+| [Next.js@11.1.2](./next.js)| `219.970 B` | `75.440 B` | tba |
 
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
+By `ssr` frameworks the js payload from the browser network tab is taken.
 
 ** The Lighthouse Score is taken on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen, runs every test 5x and the median is taken.
