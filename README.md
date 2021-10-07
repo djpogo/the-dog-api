@@ -24,15 +24,19 @@ By creating the *same* app with different frameworks, they are compareable with 
 * [react w/ function](./react-fn)
 * [next.js](./next.js)
 * [vue3 w/ vite](./vue3)
+* [SvelteKit](./svelte-kit)
 
 ## framework statistics
 
+These numbers show the amount of JavaScript which is shipped on the initial render of the **index page**. The Lighthouse score is generated also on the index page.
+
 | Framework | plain ByteSize* | gzip ByteSize* | Lighthouse Score** |
 |-----------|-------------:|----:|------:|
-| [React@17.0.2<br>w/ class](./react-class) | `178.554 B` | `56.994 B` | tba |
-| [React@17.0.2<br>w/ function](./react-fn) | `176.569 B` | `56.663 B` | tba |
-| [Next.js@11.1.2](./next.js) | `219.970 B` | `75.440 B` | tba |
-| [Vue@3.2.16 w/ vite](./vue3) | `76.020 B` | `30.490 B` | tba |
+| [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | tba |
+| [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | tba |
+| [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | tba |
+| [Vue@3.2.16 w/ vite](./vue3) | `74,68 KB` | `30,52 KB` | tba |
+| [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | tba |
 
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
 By `ssr` frameworks the js payload from the browser network tab is taken.
