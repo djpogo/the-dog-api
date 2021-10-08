@@ -23,7 +23,8 @@ By creating the *same* app with different frameworks, they are compareable with 
 * [react w/ class](./react-class)
 * [react w/ function](./react-fn)
 * [next.js](./next.js)
-* [vue3 w/ vite](./vue3)
+* [vue3 w/ vite](./vue3-vite)
+* [vue3 w/ cli](./vue3-cli)
 * [SvelteKit](./svelte-kit)
 
 ## framework statistics
@@ -35,7 +36,8 @@ These numbers show the amount of JavaScript which is shipped on the initial rend
 | [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | tba |
 | [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | tba |
 | [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | tba |
-| [Vue@3.2.16 w/ vite](./vue3) | `74,68 KB` | `30,52 KB` | tba |
+| [Vue@3.2.16 w/ vite](./vue3-vite) | `74,68 KB` | `30,52 KB` | tba |
+| [Vue@3.2.19 w/ cli](./vue3-cli) | `124,85 KB` | `46,47 KB` | tba |
 | [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | tba |
 
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
