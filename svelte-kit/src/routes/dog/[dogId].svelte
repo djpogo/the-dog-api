@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-const apiUrl = 'https://api.thedogapi.com/v1/images/';
+const apiUrl = import.meta.env.VITE_API_DETAIL_URL;
 /**
  * @type {import('@sveltejs/kit').Load}
  */

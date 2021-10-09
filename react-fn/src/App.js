@@ -9,8 +9,6 @@ import Detail from './routes/Detail';
 
 import './App.css';
 
-const apiUrl = 'https://api.thedogapi.com/v1/images/';
-
 function App() {
   return (
     <div className="App">
@@ -20,10 +18,10 @@ function App() {
       <Router>
         <Switch>
           <Route path="/dog/:dogId">
-            <Detail apiUrl={apiUrl} />
+            <Detail />
           </Route>
           <Route path="/">
-            <Home apiUrl={`${apiUrl}search?limit=20`} />
+            <Home />
           </Route>
         </Switch>
       </Router>

@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import Image from '@/components/Image.vue';
 
-const apiUrl = 'https://api.thedogapi.com/v1/images/';
+const apiUrl = import.meta.env.VITE_API_DETAIL_URL;
 const dog = ref({});
 const route = useRoute();
 

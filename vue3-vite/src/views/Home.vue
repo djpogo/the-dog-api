@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import Image from '@/components/Image.vue'
 
-const apiUrl = 'https://api.thedogapi.com/v1/images/';
+const apiUrl = import.meta.env.VITE_API_URL;
 const dogs = ref([]);
 
 onMounted(() => {
@@ -14,7 +14,7 @@ onMounted(() => {
 });
 
 async function fetchDogs() {
-    const response = await fetch(`${apiUrl}search?limit=20`);
+    const response = await fetch(apiUrl);
     if (response.ok) {
         dogs.value = await response.json();
         window.sessionStorage.setItem('dogs', JSON.stringify(dogs.value));

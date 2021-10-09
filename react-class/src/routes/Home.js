@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import Image from '../components/Image';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,7 @@ class Home extends Component {
     }
     
     async fetchDogs() {
-        const response = await fetch(this.props.apiUrl);
+        const response = await fetch(apiUrl);
         if (response.ok) {
             this.setState({
                 dogs: await response.json()

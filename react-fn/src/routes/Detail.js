@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import Image from '../components/Image';
-function Detail(props) {
+const apiUrl = process.env.REACT_APP_API_DETAIL_URL;
+
+function Detail() {
     const { dogId } = useParams();
 
     const [dog, setDog] = useState({});
@@ -12,7 +14,7 @@ function Detail(props) {
     }, [dogId]);
 
     async function fetchDog() {
-        const response = await fetch(`${props.apiUrl}${dogId}`);
+        const response = await fetch(`${apiUrl}${dogId}`);
 
         if (response.ok) {
             setDog(await response.json());

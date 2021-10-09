@@ -5,7 +5,9 @@ import Image from '../components/Image';
 
 import './Home.css';
 
-function Home(props) {
+const apiUrl = process.env.REACT_APP_API_URL;
+
+function Home() {
 
     const [dogs, setDogs] = useState([]);
 
@@ -20,7 +22,7 @@ function Home(props) {
     }, []);
 
     async function fetchDogs() {
-        const response = await fetch(props.apiUrl);
+        const response = await fetch(apiUrl);
 
         if (response.ok) {
             const data = await response.json(); 

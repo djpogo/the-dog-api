@@ -27,7 +27,7 @@ export default function Home({ dogs }) {
 
 export async function getStaticProps() {
   // Call an external API endpoint to get posts
-  const response = await fetch('https://api.thedogapi.com/v1/images/search?limit=20');
+  const response = await fetch(process.env.NEXT_PUBLIC_API_URL);
   let dogs = [];
   if (response.ok) {
     dogs = await response.json();

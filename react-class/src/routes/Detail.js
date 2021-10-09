@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import Image from '../components/Image';
 
+const apiUrl = process.env.REACT_APP_API_DETAIL_URL;
+
 class Detail extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +14,7 @@ class Detail extends Component {
         this.fetchDog(this.dogId, this.props.apiUrl);
     }
 
-    fetchDog(dogId, apiUrl = 'https://api.thedogapi.com/v1/images/') {
+    fetchDog(dogId) {
         fetch(`${apiUrl}${dogId}`)
             .then(response => response.json())
             .then(data => this.setState({ dog: data }));

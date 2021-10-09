@@ -3,7 +3,9 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from '../components/Image';
 
-function Detail(props) {
+const apiUrl = process.env.NEXT_PUBLIC_API_DETAIL_URL;
+
+function Detail() {
     const rtr = useRouter();
     const { dogId } = rtr.query;
     const [dog, setDog] = useState({});
@@ -13,12 +15,12 @@ function Detail(props) {
     }, [dogId]);
 
     async function fetchDog() {
-        const response = await fetch(`https://api.thedogapi.com/v1/images/${dogId}`);
+        const response = await fetch(`${apiUrl}${dogId}`);
         if (response.ok) {
             setDog(await response.json());
         }
     }
-
+    
     return (
         <main>
             <h1>Dog #{dog.id}</h1>
