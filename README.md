@@ -46,3 +46,25 @@ These numbers show the amount of JavaScript which is shipped on the initial rend
 By `ssr` frameworks the js payload from the browser network tab is taken.
 
 ** The Lighthouse Score is taken on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen, runs every test 5x and the median is taken.
+
+## dog api mock
+
+To reduce network and dog api latency a local api mock can be found at [api-mock](./api-mock).
+
+### prepare api mock
+
+``` bash
+$ cd api-mock
+$ npm install
+$ npm run prepare-mock
+```
+This command downloads a 20 image snapshot of the dog api enpoints, used in this project.
+
+### run api mock
+
+``` bash
+$ cd api-mock
+$ npm run serve-mock
+```
+
+This will start a server at [`http://localhost:3001`](http://localhost:3001). Port and host can be configured in the [`.env`](./api-mock/.env).
