@@ -32,7 +32,7 @@ By creating the *same* app with different frameworks, they are compareable with 
 
 These numbers show the amount of JavaScript which is shipped on the initial render of the **index page**. The Lighthouse score is generated also on the index page.
 
-| Framework | plain ByteSize* | gzip ByteSize* | Lighthouse Score** |
+| Framework | plain ByteSize* | gzip ByteSize* | Lighthouse Performance** |
 |-----------|-------------:|----:|------:|
 | [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | tba |
 | [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | tba |
@@ -45,7 +45,7 @@ These numbers show the amount of JavaScript which is shipped on the initial rend
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
 By `ssr` frameworks the js payload from the browser network tab is taken.
 
-** The Lighthouse Score is taken on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen, runs every test 5x and the median is taken.
+** The Lighthouse Performance Score is taken on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen, runs every test 5x and the median is taken. All json & images are served by the same api-mock snapshot.
 
 ## dog api mock
 
@@ -59,6 +59,15 @@ $ npm install
 $ npm run prepare-mock
 ```
 This command downloads a 20 image snapshot of the dog api enpoints, used in this project.
+
+### reencode images to webp
+
+After creating a snapshot from the api, you can convert images to webp format by running `npm run reencode-images`.
+
+``` bash
+$ cd api-mock
+$ npm run reencode-images
+```
 
 ### run api mock
 

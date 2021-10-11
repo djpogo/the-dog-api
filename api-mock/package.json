@@ -6,11 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare-mock": "node prepare.js",
+    "reencode-images": "node squoosh.js",
     "serve-mock": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@squoosh/lib": "^0.4.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
