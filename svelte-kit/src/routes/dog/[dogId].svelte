@@ -1,10 +1,11 @@
 <script context="module" lang="ts">
-const apiUrl = import.meta.env.VITE_API_DETAIL_URL;
+import { variables } from '../../variables';
+const { apiDetailUrl } = variables;
 /**
  * @type {import('@sveltejs/kit').Load}
  */
 export async function load({ page, fetch }) {
-    const response = await fetch(`${apiUrl}${page.params.dogId}`);
+    const response = await fetch(`${apiDetailUrl}${page.params.dogId}`);
 
     if (response.ok) {
         return {

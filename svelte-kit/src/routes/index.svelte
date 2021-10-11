@@ -1,16 +1,17 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-	const apiUrl = import.meta.env.VITE_API_URL;
+	import { variables } from '../variables';
+	const { apiUrl } = variables;
 	/**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
 	export async function load({ page, fetch }) {
-		const response = await fetch (apiUrl);
+		const response = await fetch(apiUrl);
 
 		if (response.ok) {
 			return {
 				props: {
-					dogs: await response.json(),
+					dogs: await response.json()
 				},
 			};
 		}
