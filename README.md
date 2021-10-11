@@ -30,22 +30,22 @@ By creating the *same* app with different frameworks, they are compareable with 
 
 ## framework statistics
 
-These numbers show the amount of JavaScript which is shipped on the initial render of the **index page**. The Lighthouse score is generated also on the index page.
+These numbers show the amount of JavaScript which is shipped on the initial render of the **index page**.
 
 | Framework | plain ByteSize* | gzip ByteSize* | Lighthouse Performance** |
 |-----------|-------------:|----:|------:|
-| [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | tba |
-| [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | tba |
-| [React@17.0.2 w/ vite<br>w/ function](./react-vite) | `155,55 KB` | `51,79 KB` | tba |
-| [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | tba |
-| [Vue@3.2.16 w/ vite](./vue3-vite) | `74,68 KB` | `30,52 KB` | tba |
-| [Vue@3.2.19 w/ cli](./vue3-cli) | `124,85 KB` | `46,47 KB` | tba |
-| [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | tba |
+| [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | **58** (FCP: 1,7s; SI: 1,7s; LCP: 16,4s; TTI: 2,0s; TBT: 170ms; CLS: 0.829) |
+| [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | **59** (FCP: 1,5s; SI: 1,6s; LCP: 15,9s; TTI: 1,9s; TBT: 170ms; CLS: 0,563) |
+| [React@17.0.2 w/ vite<br>w/ function](./react-vite) | `155,55 KB` | `51,79 KB` | **61** (FCP: 1,3s; SI: 1,4s; LCP: 15,2s; TTI: 1,5s; TBT: 60ms; CLS: 0,709) |
+| [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | **68** (FCP: 0,9s; SI: 7,2s; LCP: 3,6s; TTI: 3,7s; TBT: 560ms; CLS: 0) |
+| [Vue@3.2.16 w/ vite](./vue3-vite) | `74,68 KB` | `30,52 KB` | **52** (FCP: 1,2s; SI: 1,6s; LCP: 14,4s; TTI: 2,0s, TBT: 390ms; CLS: 0.621) |
+| [Vue@3.2.19 w/ cli](./vue3-cli) | `124,85 KB` | `46,47 KB` | **59** (FCP: 1,5s; SI: 1,7s; LCP: 15,3s; TTI: 2,0s; TBT: 130ms; CLS: 0.829) |
+| [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | **87** (FCP: 2,0s; SI: 7,8s; LCP: 2,5s; TTI: 2,4s; TBT: 130ms; CLS: 0) |
 
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
 By `ssr` frameworks the js payload from the browser network tab is taken.
 
-** The Lighthouse Performance Score is taken on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen, runs every test 5x and the median is taken. All json & images are served by the same api-mock snapshot.
+** The Lighthouse Performance Score is taken with incognito mode on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen. All json & images are served by the same api-mock snapshot, with webp reencoded images.
 
 ## dog api mock
 
