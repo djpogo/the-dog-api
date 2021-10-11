@@ -1,11 +1,12 @@
 const express = require('express');
 const fs = require('fs');
 const compression = require('compression');
+const cors = require('cors');
 const config = require('dotenv').config();
 
 const app = express();
 
-app.use(compression());
+app.use(compression()).use(cors({ origin: '*' }));
 app.get('/', (req, res) => {
     fs.readFile('./mock/index.json', (err, data) => {
         if (err) {
