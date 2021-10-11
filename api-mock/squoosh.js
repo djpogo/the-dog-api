@@ -25,7 +25,17 @@ function encodeImage(imagePath, imagePool) {
                     imageJson.url = `${imageJson.url.split('.')[0]}.webp`;
                     fs.writeFileSync(`.${imagePath.split('.')[1]}.json`, JSON.stringify(imageJson));
                 }
-            })
+            });
+            fs.readFile('./mock/index.json', (err, data) => {
+                if (err) {
+                    throw err;
+                } else {
+                    const fileName = imagePath.split('/').pop();
+                    const webpName = `${fileName.split('.').shift()}.webp`;
+                    data = ('' + data).replace(fileName, webpName);
+                    fs.writeFileSync('./mock/index.json', data);
+                }
+            });
         } catch (error) {
             console.log(error);
         } finally {
