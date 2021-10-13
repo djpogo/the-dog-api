@@ -24,6 +24,7 @@ By creating the *same* app with different frameworks, they are compareable with 
 * [react w/ function](./react-fn)
 * [react w/ vite & function](./react-vite)
 * [next.js](./next.js)
+* [nuxt3@latest](./nuxt3)
 * [vue3 w/ vite](./vue3-vite)
 * [vue3 w/ cli](./vue3-cli)
 * [SvelteKit](./svelte-kit)
@@ -38,6 +39,7 @@ These numbers show the amount of JavaScript which is shipped on the initial rend
 | [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | **59** (FCP: 1,5s; SI: 1,6s; LCP: 15,9s; TTI: 1,9s; TBT: 170ms; CLS: 0,563) |
 | [React@17.0.2 w/ vite<br>w/ function](./react-vite) | `155,55 KB` | `51,79 KB` | **61** (FCP: 1,3s; SI: 1,4s; LCP: 15,2s; TTI: 1,5s; TBT: 60ms; CLS: 0,709) |
 | [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | **68** (FCP: 0,9s; SI: 7,2s; LCP: 3,6s; TTI: 3,7s; TBT: 560ms; CLS: 0) |
+| [Nuxt3@latest](./nuxt3) | `145,94 KB` | `57,65 KB` | tba |
 | [Vue@3.2.16 w/ vite](./vue3-vite) | `74,68 KB` | `30,52 KB` | **52** (FCP: 1,2s; SI: 1,6s; LCP: 14,4s; TTI: 2,0s, TBT: 390ms; CLS: 0.621) |
 | [Vue@3.2.19 w/ cli](./vue3-cli) | `124,85 KB` | `46,47 KB` | **59** (FCP: 1,5s; SI: 1,7s; LCP: 15,3s; TTI: 2,0s; TBT: 130ms; CLS: 0.829) |
 | [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | **87** (FCP: 2,0s; SI: 7,8s; LCP: 2,5s; TTI: 2,4s; TBT: 130ms; CLS: 0) |
