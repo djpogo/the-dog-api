@@ -33,21 +33,25 @@ By creating the *same* app with different frameworks, they are compareable with 
 
 These numbers show the amount of JavaScript which is shipped on the initial render of the **index page**.
 
-| Framework | plain ByteSize* | gzip ByteSize* | Lighthouse Performance** |
+| Framework | plain ByteSize* | gzip ByteSize* | Unused Code** | Lighthouse Performance*** |
 |-----------|-------------:|----:|------:|
-| [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | **58** (FCP: 1,7s; SI: 1,7s; LCP: 16,4s; TTI: 2,0s; TBT: 170ms; CLS: 0.829) |
-| [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | **59** (FCP: 1,5s; SI: 1,6s; LCP: 15,9s; TTI: 1,9s; TBT: 170ms; CLS: 0,563) |
-| [React@17.0.2 w/ vite<br>w/ function](./react-vite) | `155,55 KB` | `51,79 KB` | **61** (FCP: 1,3s; SI: 1,4s; LCP: 15,2s; TTI: 1,5s; TBT: 60ms; CLS: 0,709) |
-| [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | **68** (FCP: 0,9s; SI: 7,2s; LCP: 3,6s; TTI: 3,7s; TBT: 560ms; CLS: 0) |
-| [Nuxt3@latest](./nuxt3) | `145,94 KB` | `57,65 KB` | tba |
-| [Vue@3.2.16 w/ vite](./vue3-vite) | `74,68 KB` | `30,52 KB` | **52** (FCP: 1,2s; SI: 1,6s; LCP: 14,4s; TTI: 2,0s, TBT: 390ms; CLS: 0.621) |
-| [Vue@3.2.19 w/ cli](./vue3-cli) | `124,85 KB` | `46,47 KB` | **59** (FCP: 1,5s; SI: 1,7s; LCP: 15,3s; TTI: 2,0s; TBT: 130ms; CLS: 0.829) |
-| [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | **87** (FCP: 2,0s; SI: 7,8s; LCP: 2,5s; TTI: 2,4s; TBT: 130ms; CLS: 0) |
+| [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | `172.619 B` / `70.504 B` **40,84%** | **58** (FCP: 1,7s; SI: 1,7s; LCP: 16,4s; TTI: 2,0s; TBT: 170ms; CLS: 0.829) |
+| [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | `170.748 B` / `69.784 B` **40,86%** | **59** (FCP: 1,5s; SI: 1,6s; LCP: 15,9s; TTI: 1,9s; TBT: 170ms; CLS: 0,563) |
+| [React@17.0.2 w/ vite<br>w/ function](./react-vite) | `155,55 KB` | `51,79 KB` | `159.247 B` / `60.120 B` **37,75%**  | **61** (FCP: 1,3s; SI: 1,4s; LCP: 15,2s; TTI: 1,5s; TBT: 60ms; CLS: 0,709) |
+| [Next.js@11.1.2](./next.js) | `219,97 KB` | `75,44 KB` | `220.278 B` / `90.241 B` **40,97%** | **68** (FCP: 0,9s; SI: 7,2s; LCP: 3,6s; TTI: 3,7s; TBT: 560ms; CLS: 0) |
+| [Nuxt3@latest](./nuxt3) | `145,94 KB` | `57,65 KB` | `154.473 B` / `59.948 B` **38,81%** | tba |
+| [Vue@3.2.16 w/ vite](./vue3-vite) | `74,68 KB` | `30,52 KB` | `76.433 B` / `26.683 B` **34,91%** | **52** (FCP: 1,2s; SI: 1,6s; LCP: 14,4s; TTI: 2,0s, TBT: 390ms; CLS: 0.621) |
+| [Vue@3.2.19 w/ cli](./vue3-cli) | `124,85 KB` | `46,47 KB` | `129.367 B` / `49.630 B` **38,36%** | **59** (FCP: 1,5s; SI: 1,7s; LCP: 15,3s; TTI: 2,0s; TBT: 130ms; CLS: 0.829) |
+| [SvelteKit@1.0.0-next.180](./svelte-kit) | `30,97 KB` | `13,03 KB` | `32.361 B` / `13.797 B` **42,63%** | **87** (FCP: 2,0s; SI: 7,8s; LCP: 2,5s; TTI: 2,4s; TBT: 130ms; CLS: 0) |
 
 \* The list shows plain js and gzip file sizes, to illustrate how much js the browser needs to read. The gzip size is important for download speed, but afterward, the browser needs to unzip, parse and execute the JavaScript, that's why the plain production code size is displayed here.
 By `ssr` frameworks the js payload from the browser network tab is taken.
 
-** The Lighthouse Performance Score is taken with incognito mode on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen. All json & images are served by the same api-mock snapshot, with webp reencoded images.
+** Unused Code of code shipped within the index page is measured with chrome devtools **coverage** tab. All *.js files are taken into account. Unused CSS is ignored. The first number is total js bytes processed, the second number is bytes that are not used from chrome, the percentage the result of `(unusedBytes / totalBytes) * 100`.
+
+*** The Lighthouse Performance Score is taken on the production codebase either by `serve -s <dist-folder>` or on ssr frameworks with the included server. A mid-range android phone with a Snapdragon 690 CPU, 6GB ram, and a 6" 2520x1080 screen. All json & images are served by the same api-mock snapshot, with webp reencoded images.
+Lighthouse ran 5 times, the median is generated and the one run, who is closest is taken into this document.
+
 
 ## dog api mock
 
