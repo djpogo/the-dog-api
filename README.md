@@ -34,7 +34,7 @@ By creating the *same* app with different frameworks, they are compareable with 
 These numbers show the amount of JavaScript which is shipped on the initial render of the **index page**.
 
 | Framework | plain ByteSize* | gzip ByteSize* | Unused Code** | Lighthouse Performance*** |
-|-----------|-------------:|----:|------:|
+|-----------|-------------:|----:|----:|------:|
 | [React@17.0.2<br>w/ class](./react-class) | `166,45 KB` | `54,34 KB` | `172.619 B` / `70.504 B` **40,84%** | **58** (FCP: 1,7s; SI: 1,7s; LCP: 16,4s; TTI: 2,0s; TBT: 170ms; CLS: 0.829) |
 | [React@17.0.2<br>w/ function](./react-fn) | `164,53 KB` | `54,03 KB` | `170.748 B` / `69.784 B` **40,86%** | **59** (FCP: 1,5s; SI: 1,6s; LCP: 15,9s; TTI: 1,9s; TBT: 170ms; CLS: 0,563) |
 | [React@17.0.2 w/ vite<br>w/ function](./react-vite) | `155,55 KB` | `51,79 KB` | `159.247 B` / `60.120 B` **37,75%**  | **61** (FCP: 1,3s; SI: 1,4s; LCP: 15,2s; TTI: 1,5s; TBT: 60ms; CLS: 0,709) |
